@@ -1,12 +1,8 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class algo {
+public class Main {
     public static void main(String[] args) throws Exception {
-        solution();
-    }
-
-    private static void solution() throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
 
@@ -16,23 +12,22 @@ public class algo {
         if (n < 10) {
             b = n;
         } else {
-            a = n / 10;
-            b = n % 10;
+            a = n/10;
+            b = n%10;
         }
 
         int cycle = 1;
 
         int temp = 0;
-        while (true) {
-            temp = (a + b) % 10;
-            if ((b * 10 + temp) == n) {
+        while(true) {
+            temp = (a + b)%10;
+            if((b*10 + temp) == n) {
                 break;
             }
             a = b;
             b = temp;
             cycle++;
         }
-
-        System.out.println(cycle);
+        System.out.print(cycle);
     }
 }
